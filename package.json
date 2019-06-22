@@ -1,6 +1,6 @@
 {
   "name": "@ztrehagem/definitively-axios",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTTP client with type-safe response through axios.",
   "author": {
     "email": "shigeki.suwa@ztrehagem.dev",
