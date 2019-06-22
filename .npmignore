@@ -1,2 +1,4 @@
 /src
-/example.js
+/example.*
+/tslint.json
+/tsconfig.json
