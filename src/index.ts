@@ -1,12 +1,12 @@
 // tslint:disable: max-line-length
-import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance, AxiosStatic } from 'axios'
 
 export interface DefinitivelyResponse<S extends number, R> extends AxiosResponse<R> {
   status: S
 }
 
-export interface DefinitivelyInstance {
-  axios: AxiosInstance
+export interface DefinitivelyInstance<A extends AxiosInstance = AxiosInstance> {
+  axios: A
   request<DR extends DefinitivelyResponse<number, R>, R = any>(options: AxiosRequestConfig): Promise<DR>
   get<DR extends DefinitivelyResponse<number, R>, R = any>(url: string, options?: AxiosRequestConfig): Promise<DR>
   post<DR extends DefinitivelyResponse<number, R>, R = any>(url: string, options?: AxiosRequestConfig): Promise<DR>
@@ -16,7 +16,7 @@ export interface DefinitivelyInstance {
   head<DR extends DefinitivelyResponse<number, R>, R = any>(url: string, options?: AxiosRequestConfig): Promise<DR>
 }
 
-export const create = (instance: AxiosInstance): DefinitivelyInstance => ({
+export const create = <A extends AxiosInstance>(instance: A): DefinitivelyInstance<A> => ({
   get axios() {
     return instance
   },
@@ -43,7 +43,7 @@ export const create = (instance: AxiosInstance): DefinitivelyInstance => ({
   },
 })
 
-export interface DefinitivelyStatic extends DefinitivelyInstance {
+export interface DefinitivelyStatic extends DefinitivelyInstance<AxiosStatic> {
   create: (config?: AxiosRequestConfig) => DefinitivelyInstance
 }
 const definitivelyStatic: DefinitivelyStatic = {
