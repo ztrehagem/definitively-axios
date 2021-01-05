@@ -48,11 +48,11 @@
     ]
   },
   "peerDependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@ztrehagem/tslint-rules": "github:ztrehagem/tslint-rules",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "axios-mock-adapter": "^1.16.0",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
